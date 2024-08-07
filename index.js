@@ -6,7 +6,11 @@ const cors=require('cors');
 const port=4002;
 const Usersdata=require('./model/schema');
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:["https://frontend-client-cars.vercel.app"],
+  methods:["GET","POST", "PUT", "DELETE"],
+  credentials:true
+}));
 app.use(cors());
 const url = 'mongodb+srv://Devadasu:Devadasu1234@cluster0.3n7oap2.mongodb.net/CarEnquiries?retryWrites=true&w=majority&appName=Cluster0'; 
 mongoose.connect(url)
